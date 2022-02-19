@@ -30,12 +30,12 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "HomeWork\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "HomeWork\\Tests\\": "tests/"
         }
     },
     "replace": {
