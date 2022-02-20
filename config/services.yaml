@@ -20,5 +20,17 @@ services:
             - '../src/Entity/'
             - '../src/Bridge/Kernel.php'
 
+
+    HomeWork\Infrastructure\Database\ComponentSetRepository:
+        public: true
+
+    HomeWork\Infrastructure\Database\PdoProvider:
+        arguments:
+            $host: '127.0.0.1'
+            $db: 'warehouse'
+            $user: 'root'
+            $pass: ''
+            $charset: 'utf8mb4'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

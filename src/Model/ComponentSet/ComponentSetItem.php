@@ -1,6 +1,6 @@
 <?php
 
-namespace HomeWork\Model;
+namespace HomeWork\Model\ComponentSet;
 
 use Ramsey\Uuid\UuidInterface;
 

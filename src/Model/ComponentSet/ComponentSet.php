@@ -1,6 +1,6 @@
 <?php
 
-namespace HomeWork\Model;
+namespace HomeWork\Model\ComponentSet;
 
 use DateTimeImmutable;
 use DomainException;
@@ -21,7 +21,7 @@ class ComponentSet
     private function __construct(
         UuidInterface $id,
         ComponentSetStatus $status,
-        DateTimeImmutable $createdAt,
+        ?DateTimeImmutable $createdAt,
         ?DateTimeImmutable $collectedAt = null,
         ?DateTimeImmutable $sentAt = null,
         array $componentSetItems = []
@@ -34,9 +34,9 @@ class ComponentSet
         $this->componentSetItems = $componentSetItems;
     }
 
-    static public function createNew(UuidInterface $id): self
+    static public function create(UuidInterface $id, ?DateTimeImmutable $createdAt = null): self
     {
-        return new self($id, ComponentSetStatus::CREATED(), new DateTimeImmutable());
+        return new self($id, ComponentSetStatus::CREATED(), $createdAt ?? new DateTimeImmutable());
     }
 
     static public function createCollected(
@@ -110,7 +110,7 @@ class ComponentSet
     /**
      * @return ComponentSetItem[]
      */
-    public function componentSetItems(): array
+    public function items(): array
     {
         return $this->componentSetItems;
     }

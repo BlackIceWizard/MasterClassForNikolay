@@ -7,28 +7,28 @@ use Ramsey\Uuid\UuidInterface;
 class Component
 {
     private UuidInterface $id;
-    private int $numberAtStock;
+    private int $numberInStock;
     private string $name;
 
-    public function __construct(UuidInterface $id, int $numberAtStock, string $name)
+    public function __construct(UuidInterface $id, int $numberInStock, string $name)
     {
         $this->id = $id;
-        $this->numberAtStock = $numberAtStock;
+        $this->numberInStock = $numberInStock;
         $this->name = $name;
     }
 
     public function takeIn(int $number): void
     {
-        $this->numberAtStock += $number;
+        $this->numberInStock += $number;
     }
 
     public function takeOut(int $number): void
     {
-        if($this->numberAtStock < $number) {
+        if($this->numberInStock < $number) {
             throw new \DomainException('Not enough components in stock');
         }
 
-        $this->numberAtStock -= $number;
+        $this->numberInStock -= $number;
     }
 
     public function id(): UuidInterface
@@ -36,9 +36,9 @@ class Component
         return $this->id;
     }
 
-    public function numberAtStock(): int
+    public function numberInStock(): int
     {
-        return $this->numberAtStock;
+        return $this->numberInStock;
     }
 
     public function name(): string
