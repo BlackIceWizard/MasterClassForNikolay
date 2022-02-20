@@ -87,9 +87,9 @@ class ComponentSet
         return $this->id;
     }
 
-    public function status(ComponentSetStatus $status): void
+    public function status(): ComponentSetStatus
     {
-        $this->status = $status;
+        return $this->status;
     }
 
     public function createdAt(): DateTimeImmutable
